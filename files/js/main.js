@@ -41,74 +41,52 @@ $(function(){
 
     //HEADER & NAV
     ////////////////////////////////////////////////
-    $('[data-scrollToSec]').waypoint({
-        handler: function(dir) {
-            if(dir == 'down'){
-                $('header nav a').removeClass('atPage');
-                scrollToSec = $(this.element).attr('data-scrollToSec');              
-                $('header nav [data-scrollTo="'+scrollToSec+'"]').addClass('atPage');
-            }
-        },
-        offset: '90%'
-    });
-
-    $('[data-scrollToSec]').waypoint({
-        handler: function(dir) {
-            if(dir == 'up'){
-                $('header nav a').removeClass('atPage');
-                scrollToSec = $(this.element).attr('data-scrollToSec');              
-                $('header nav [data-scrollTo="'+scrollToSec+'"]').addClass('atPage');
-            }
-        },
-        offset: '-10%'
-    });
-
-    $('header nav a[data-scrollTo], header nav div[data-scrollTo]').click(function(){
-        $('header nav a').removeClass('atPage');
-        $(this).addClass('atPage');
+    $('body *[scrollToId]').click(function(){
         Waypoint.refreshAll();
-        scrollTo = $(this).attr('data-scrollTo');
-        $("html,body").animate({scrollTop: $('[data-scrollToSec='+scrollTo+']').position().top - 100}, 600);           
-
-        if(maxMD()){
-            $('.burgMenu').removeClass('tapped');
-            TweenMax.to($('header .left'), 0.3, {x:"100%", ease: Power4.easeOut});
-        }        
+        scrollTo = $(this).attr('scrollToId');
+        setTimeout(function(){ $("html,body").animate({scrollTop: $('#'+scrollTo+'').position().top}, 600); }, 100);
+        
     })
 
-    $('main [data-scrollTo]').click(function(){
-        Waypoint.refreshAll();
-        scrollTo = $(this).attr('data-scrollTo');
-        $("html,body").animate({scrollTop: $('[data-scrollToSec='+scrollTo+']').position().top - 100}, 600);                
-    })    
+
+    // STOP START SCROLL
+    ////////////////////////////////////////////////
+    var offseY;
+
+    function stopScroll() {
+        offseY = window.pageYOffset;
+        var topY = -offseY + 'px';              
+        $('html').addClass('noScroll');     
+        $('body').css({'top':topY});
+    }
+
+    function startScroll() {
+        $('html').removeClass('noScroll');
+        $('html, body').scrollTop(offseY);
+    }   
+
+    // BURG MENU
+    ////////////////////////////////////////////////
+    function toggleMenu() {
+        if($('html').hasClass('noScroll')) {
+            startScroll();
+        } else {
+            stopScroll();
+        }
+
+        $('.burgMenu').toggleClass('tapped');
+        $('.fixedNav').toggleClass('show');   
+    }
 
     $('.burgMenu').click(function(){
-        if(maxMD()){
-            $(this).toggleClass('tapped');
-            if($(this).hasClass('tapped')){
-                TweenMax.to($('header .left'), 0.3, {x:"0%", ease: Power4.easeOut});
-            } else {
-                TweenMax.to($('header .left'), 0.3, {x:"100%", ease: Power4.easeOut});                
-            }
-        }
+        toggleMenu();
     });
 
-    $('main').waypoint({
-        handler: function(dir) {
-            if(dir == 'down'){                
-                $('header').toggleClass('scrolled');
-                TweenMax.to($('.pastSponsors'), 0.3, {opacity:0, ease: Power4.easeOut});
-            } else {
-                $('header').toggleClass('scrolled');
-                TweenMax.to($('.pastSponsors'), 0.3, {opacity:1, ease: Power4.easeOut});
-                TweenMax.set($('.pastSponsorLogos'),{scrollTo:{x:0}});
-                TweenMax.to($('.pastSponsorLogos'), 60, {scrollTo:{x:$('.pastSponsorLogos').get(0).scrollWidth - $(document).width(), ease:Linear.easeNone}});
-            }
-        },
-        offset: '-1px'
+    $('main, .fixedNav a').click(function(){
+        if($('html').hasClass('noScroll')){
+           toggleMenu(); 
+        }        
     });
-
-    TweenMax.to($('.pastSponsorLogos'), 60, {scrollTo:{x:$('.pastSponsorLogos').get(0).scrollWidth - $(document).width(), ease:Linear.easeNone}});
 
     $('.tap').on('click',function(){
         $this = $(this)
@@ -202,7 +180,6 @@ $(function(){
 
     //SCROLL MAGIC
     ////////////////////////////////////////////////
-
     var controller = new ScrollMagic.Controller();
 
     $('.downNormal').each(function(){
@@ -247,50 +224,6 @@ $(function(){
 
 
 
-    //TOP FOLD SPONSORS
-    ////////////////////////////////////////////////
-    Number.prototype.toFixedDown = function(digits) {
-        if(this >= 0) {
-            var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
-                m = this.toString().match(re);
-            return m ? parseFloat(m[1]) : this.valueOf();
-        } else {
-            return 0;
-        }
-    };
-
-    $('.eachSponsor').mouseenter(function(){
-        if(minSM()) {
-            $this = $(this);
-            i = $('.eachSponsor').length - $this.index();
-            elPos = ($this.index()/($('.eachSponsor').length - 1)) * 100;
-            totalScroll = $('.pastSponsorLogos').get(0).scrollWidth - $(document).width();
-
-            scrollTo = (elPos/100) * totalScroll;
-
-             TweenMax.to($('.pastSponsorLogos'), 0.3, {scrollTo:{x:scrollTo}});
-        };
-    });   
-
-    $('.pastSponsorLogos').scroll(function(){
-        if(minSM()) {
-            $this = $(this);
-            totalEl = $('.pastSponsorLogos .eachSponsor').length;
-            scrollP = $this.scrollLeft();
-            totalScrollW = $('.pastSponsorLogos').get(0).scrollWidth - $(document).width();
-
-            clearTimeout($.data(this, 'scrollTimer'));
-            $.data(this, 'scrollTimer', setTimeout(function() {
-                atIndex = ((scrollP/totalScrollW)*totalEl).toFixedDown(0);
-                if(atIndex >= totalEl){atIndex = (totalEl-1)};
-                if(atIndex <= 0){atIndex = 0};
-
-                el = $this.children('*').removeClass('active');
-                el = $this.children('*:nth-of-type('+(atIndex+1)+')').addClass('active');
-            }, 10));
-        };
-    })
-
 
 
 
@@ -332,14 +265,56 @@ $(function(){
     count();
 
 
-    //LIGHTBOX
+    //STICKY 
     ////////////////////////////////////////////////
-    // $(document).ready(function() {
-    //     $('#selector1').lightGallery({
-    //         selector: '.item'
-    //     });
-    // });
 
+    var stacked = $('.stacked section').length * $('.sectionTitle').outerHeight();
+    $('.fullyTopFold .content').css('margin-bottom',stacked);
+    $('.stacked section').each(function() {    
+        h = $(this).find('.sectionTitle').outerHeight();
+        stacked -= h;
+        $(this).find('.sectionTitle').css('bottom',stacked);
+        $(this).find('.sectionContent').prepend("<div class='push' style='height:"+h+"px;'></div>");
+    });
+
+    //STUCK DETECTION
+    function scrollPass(el,i){
+        if (typeof jQuery === "function" && el instanceof jQuery) {el = el[0];}
+        var $title = $(el).find('.sectionTitle');
+        var h = $title.outerHeight();
+        var $content = $(el).find('.sectionContent');
+        var rect = el.getBoundingClientRect();
+
+        index = (($('.stacked section').length+1)-(i+1));
+
+        p = rect.top <= ((window.innerHeight || document.documentElement.clientHeight)) - (h*index);
+        if(p){
+            $title.removeClass('stuck');
+            $content.find('.push').remove();
+            //console.log(el.className+" "+ p);       
+        } else {
+            $title.addClass('stuck');
+            if($content.find('.push').length < 1){
+                $content.prepend("<div class='push' style='height:"+h+"px;'></div>");
+            }        
+            //console.log(el.className+" "+ p);
+        }
+    }
+    $(window).on('scroll',function(){
+        //$('.console').html('scroll top at: '+$(this).scrollTop());
+        $('.stacked section').each(function(i) {
+            scrollPass(this, i);
+        });
+    });
+    $('.stacked section').each(function(i) {
+        scrollPass(this, i);
+    });
+    //END STUCK DETECTION
+
+    //CLICK SCROLLTO
+    // $('.stacked').on('click touchstart', '.sectionTitle.stuck', function(e){
+    //     TweenMax.to(window, 0.8, {scrollTo:{y:$(this).parents('section').offset().top, autoKill:false}, ease:Power2.easeInOut});
+    // });
 
     //FULLY
     ////////////////////////////////////////////////
@@ -350,9 +325,6 @@ $(function(){
     }
 
     allFully();
-
-
-
 });
 
 

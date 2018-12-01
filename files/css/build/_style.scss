@@ -1,27 +1,106 @@
 /* ==========================================================================
-   GENERAL */
+   COLORS& THEME */
+
+$lightRed: #ff5455;
 $red: #EF3B3C;
+$lightYellow: #f2d70e;
 $yellow: #FEF200;
+$lightBlue: #7fd6ff;
 $blue: #4CBCF0;
-$grey: #F3F3F3;   
+$lightGrey: #F3F3F3;
+
+.themeRetro {
+  background-color: $yellow;
+
+  .sectionTitle {
+    background-color: $yellow;
+  }
+
+  .sectionContent {
+    background-color: $yellow;
+  }  
+
+  h1, h2, h3, h4, h5, h6, p, li {
+    color: #000000;
+  }
+
+  p a {
+    color: $red;
+  }
+}
+
+.themeCloudy {
+  background-color: $blue;
+
+  .sectionTitle {
+    background-color: $blue;
+  }
+
+  .sectionContent {
+    background-color: $blue;
+  }  
+
+  h1, h2, h3, h4, h5, h6, p, li {
+    color: #000000;
+  }
+
+  p a {
+    color: $red;
+  }  
+}
+
+.themeGrey {
+  background-color: #666;
+
+  .sectionContent {
+    background-color: #666;
+  }  
+
+  h1, h2, h3, h4, h5, h6, p, li {
+    color: #FFFFFF;
+  }
+
+  p a {
+    color: $red;
+  }  
+}
+
+/* ==========================================================================
+   GENERAL */
+
+html.noScroll body {  
+  @include bp(minLG) {
+    padding-right: 17px;
+  }
+}
+
+html.noScroll body {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
 
 body {
   margin: 0; padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $yellow;
+  background-color: $lightGrey;
   display: none;
 }
 
-h1, h2, h3, h4, h5, p, a {
+ul {
+  padding-left: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li {
   margin: 0; padding: 0; color: #000000;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-p, a, small {
+p, a, small, li {
   font-family: 'Source Code Pro', monospace;
 }
 
@@ -29,21 +108,22 @@ p a {
   display: inline-block; color: $red; font-weight: 700;
 }
 
-
-
-
 h1 {font-size: 45px;}
 h2 {font-size: 37px;}
 h3 {font-size: 28px;}
 h4 {font-size: 20px;}
-p, a {font-size: 16px;}
+h5 {font-size: 18px;}
+h6 {font-size: 16px;}
+p, a, li {font-size: 16px;}
 
 @include bp(maxSM){
-  h1 {font-size: 37px;}
+  h1 {font-size: 28px;}
   h2 {font-size: 28px;}
   h3 {font-size: 20px;}
-  h4 {font-size: 16px;}  
-  p, a {font-size: 14px;}
+  h4 {font-size: 18px;}  
+  h5 {font-size: 16px;}
+  h6 {font-size: 14px;}  
+  p, a, li {font-size: 14px;}
 }
 
 a {
@@ -58,7 +138,7 @@ a {
 
 
 
-.textBtn {
+.textArrBtn {
   display: inline-block; white-space: nowrap;
   > * {
     vertical-align: middle; display: inline-block; color: $red;
@@ -77,21 +157,15 @@ a {
 
 
 
+/* ==========================================================================
+   CUSTOM CODE HERE ONWARDS */
 
 header {
-
-  position: fixed; top: 0; left: 0; z-index: 1; width: 100%; padding: 20px 0; background-color: $yellow;
-  @include boxShadow(0px 3px 11px -3px rgba(0,0,0,0)); @include transition(box-shadow, 0.3s, ease-out);
-
-  &.scrolled {
-    @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
-  }
-
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1; pointer-events: none;
   .header {
-    display: flex; justify-content: space-between; align-items: center; flex-direction: row-reverse;
-
+    display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; padding: 20px 0;
     .burgMenu {
-      position: relative; z-index: 2; display: none;
+      position: relative; z-index: 1; pointer-events: auto; cursor: pointer;
 
       .rightArr {
           border: solid black;
@@ -104,7 +178,7 @@ header {
       }
 
       > div {
-        position: relative; width: 40px; height: 4px; border-radius: 20px; background-color: #000000; margin-top: 6px; @include transition(all, 0.3s, ease-out);
+        position: relative; width: 30px; height: 3px; border-radius: 20px; background-color: #000000; margin-top: 5px; @include transition(all, 0.3s, ease-out);
         &:first-child {
           margin-top: 0;
         }
@@ -112,7 +186,7 @@ header {
     }
 
     .burgMenu.tapped {
-
+      margin-right: 16px;
       .rightArr {
           opacity: 1;
           border: solid white;
@@ -135,92 +209,44 @@ header {
         }
       } 
     }
-
-    a {
-      display: inline-block; vertical-align: middle; margin-left: 20px;
-      &:first-child {
-        margin-left: 0;
-      }     
-    }
-
-    a.atPage {
-      color: $red;
-    }
-
-    a.registerBtn {
-      padding: 10px; background-color: $red; color: #FFFFFF;
-      @include boxShadow(0px 3px 11px -3px rgba(0,0,0,0.8));
-      @include transition(all, 0.3s, ease-out);
-      @include bp(minMD) {
-        &:hover {
-          background-color: $blue; color: #000000;
-        }
-      }
-    }
-
-    .right .logo {
-      display: inline-block;
-      img {
-        height: 50px;
-      }     
-    }
-
   }
 
-  @include bp(maxMD) {
-    .header {
-      text-align: right;
-      .burgMenu {
-        display: inline-block;
-      }  
+  .fixedNav {
+    position: absolute; right: 0%; @include transform(translateX(100%)); top: 0; padding: 20px; padding-top: 60px; padding-right: 120px;
+    pointer-events: auto; overflow: hidden; height: 100vh; @include transition(transform, 0.2s, ease-in-out);
 
-      .right {
-        width: 100%;
+    h3 {
+      margin-top: 20px;
+    }
 
-        nav {
-          display: flex; justify-content: space-between; align-items: center;
-        }       
-      }
+    p {
+      margin-top: 10px;
+    }
 
-      .left {
-         position: fixed; top: 0; right: 0; width: 100%; height: 100%; background-color: $blue; z-index: 1; @include transform(translateX(100%));
+    h3 + p {
+      margin-top: 0;
+    }
+  }
 
-         nav {
-          position: absolute; top: 50%; left: 50%; @include transform(translate(-50%,-50%)); text-align: center;
-
-          a {
-            margin-left: 0; display: block; margin-top: 20px; font-size: 24px; font-weight: 700; color: #FFFFFF;
-            &:first-child {
-              margin-top: -20px;
-            }
-          }
-
-          a.atPage {
-            color: $red;
-          }          
-
-          a.logo {
-            display: none;
-          }
-         }
-      }
-
-
-    } //end header 
-  } //end maxSM
-
-
+  .fixedNav.show {
+    @include transform(translateX(0%)); overflow: auto;
+  }
 }
 
-
-
-
-
-
-
-
 main {
-  background-color: $yellow; position: relative; z-index: 0;
+  background-color: $lightGrey; position: relative; z-index: 0;
+
+  .title {
+    display: flex; align-items: center; margin-bottom: 30px;
+    h1 {
+      margin-right: 20px; white-space: nowrap;
+    }
+
+    > div {
+      width: 100%; height: 1px; background-color: #000000;
+    }
+  }
+
 
   .withIcon {
     > * {
@@ -230,29 +256,18 @@ main {
     p {
       margin-left: 5px;
     }
-
-    .downArr {
-      width: 0; 
-      height: 0; 
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;  
-      border-top: 10px solid #999999;}
-  }  
-
-  .secPadding {
-    padding-top: 50px; padding-bottom: 50px;
   }
 }
 
 footer {
-  background-color: $blue; padding-top: 100px; padding-bottom: 100px;
+  padding-top: 100px; padding-bottom: 100px;
 
-  .textBtn {
+  .textArrBtn {
     > * {
       color: $yellow;
     }
     .arr {
-      border-left: 12px solid $yellow;      
+      border-left: 12px solid $yellow;    
     }    
   }  
 
@@ -262,164 +277,145 @@ footer {
 
   .contactUs {
     background-color: #FFFFFF; padding: 20px; @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
-  }
-}
+    border: 3px solid #000000;
 
-@include bp(maxMD) {
-  footer {
+    * {
+      color: #000000;
+    }
+  }
+
+  @include bp(maxMD) {
     .contactUs {
       margin-top: 20px;
     }    
   }  
-}
 
-
-@include bp(maxSM) {
-  footer {
+  @include bp(maxSM) {
     padding-top: 60px; padding-bottom: 20px;   
   }  
 }
 
-section.orderedSec {
-  
-  &:last-of-type {
-    padding-bottom: 100px;
-  }
-
-  > .g > .r {
-    display: flex;
-  }  
-
-  .left {
-    padding-bottom: 100px;
-  }
-
-  .lineWrap {    
-    display: flex; flex-direction: column;
-    h1 {
-      font-weight: 300; text-align: center;
-    }
-    .line {
-      width: 2px; background-color: #000000; margin: 0 auto; flex: 1;
-    }
-  }
-
-  .right {
-
-    > div {
-      position: relative; width: 100%; height: 100%; 
-    }
-
-    .sideVisual {
-      position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
-      .grad {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+20,ffffff+80,ffffff+100&1+0,0+20,0+80,1+100 */
-        background: -moz-linear-gradient(top, rgba(254,242,0,1) 0%, rgba(254,242,0,0) 40%, rgba(254,242,0,0) 60%, rgba(254,242,0,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(254,242,0,1) 0%,rgba(254,242,0,0) 40%,rgba(254,242,0,0) 60%,rgba(254,242,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(254,242,0,1) 0%,rgba(254,242,0,0) 40%,rgba(254,242,0,0) 60%,rgba(254,242,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF200', endColorstr='#FEF200',GradientType=0 ); /* IE6-9 */          
-      }
-    }
-
-  }
-
-  &:last-of-type {
-    .left {
-      padding-bottom: 0;
-    }    
-  }
-}
-
-
-@include bp(maxMD) {
-  section.orderedSec {
-    > .g > .r {
-      position: relative; z-index: 1;
-    }
-
-    .right {
-      position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.2;
-    }
-  }  
-}
-
-
-
-
 
 .topFold {
-  position: relative; background-image: url('../media/seamlessBg.png'); background-position: center;
+  background-position: center; background-size: cover;
 
-  .grad {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+20,ffffff+80,ffffff+100&1+0,0+20,0+80,1+100 */
-    background: -moz-linear-gradient(top, rgba(254,242,0,1) 10%, rgba(254,242,0,0) 40%, rgba(254,242,0,0) 60%, rgba(254,242,0,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(254,242,0,1) 10%,rgba(254,242,0,0) 40%,rgba(254,242,0,0) 60%,rgba(254,242,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(254,242,0,1) 10%,rgba(254,242,0,0) 40%,rgba(254,242,0,0) 60%,rgba(254,242,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF200', endColorstr='#FEF200',GradientType=0 ); /* IE6-9 */          
-  }
+  .content {
+    text-align: center; padding-top: 50px;
 
-  .title {
-    pointer-events: none; position: relative; z-index: 2;
-      
     img {
-      width: 100%; max-width: 200px;
+      width: 100%; display: block;
     }
 
-    h1 {
-      line-height: 1;
-    }
-
-    h1 span {
-      font-size: 108px;
-    }
-
-    .countDown span {
-      color: $red;
+    h5 {
+      margin-top: 50px; margin-bottom: 10px;
+      span {
+        color: $red;
+      }
     }
 
     a {
-      pointer-events: auto;
-    }        
+      display: inline-block; background-color: $yellow; @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
+      padding: 10px; border: 3px solid #000000;
+    }
+  }
+}
+
+#ourSponsors {
+  .eachSponsorGroupWrap {
+    background-color: #FFFFFF; @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
+    padding: 20px; height: 100%;
+
+    $gutter: 20px;
+    .logos {
+      display: flex; flex-wrap: wrap; margin-left: -$gutter; margin-right: -$gutter; margin-top: 10px;
+
+      .eachLogo {
+        width: 100%; padding: $gutter;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &.platinum {
+      .logos .eachLogo {
+        width: 50%;
+      }
+    }
+
+    &.gold {
+      .logos .eachLogo {
+        width: 50%;
+      }
+    }
+
+    &.silver {
+      .logos .eachLogo {
+        width: 50%;
+
+        &.longer {
+          width: 100%;
+        }
+      }
+    }
+
+    &.bronze {
+      .logos .eachLogo {
+        width: 16.665%;
+        &.longer {
+          width: 33.33%;
+        }
+
+        @include bp(maxSM) {
+          width: 25%;
+          &.longer {
+            width: 50%;
+          } 
+        }
+      }
+    }
+
+    &.venue {
+      .logos .eachLogo {
+        width: 16.665%;
+        &.longer {
+          width: 33.33%;
+        }
+
+        @include bp(maxSM) {
+          width: 25%;
+          &.longer {
+            width: 50%;
+          } 
+        }        
+      }
+    }
+
+
+  }
+}
+
+/* ==========================================================================
+   STUCK */
+
+.stacked {
+  .sectionTitle {
+    padding-top: 10px; padding-bottom: 10px;
+    width: 100%; cursor: pointer; opacity: 0;
+    @include transition(opacity, 0.2s, ease-in-out);
   }
 
-  .pastSponsors {
-    position: absolute; bottom: 0; left: 0; overflow: hidden; width: 100%; z-index: 3;
-    p {
-      margin-bottom: 20px;
-    }
-    .pastSponsorLogos {      
-      background-color: #FFFFFF; text-align: center;
-      width: 100%; white-space: nowrap; overflow-x: scroll; -webkit-overflow-scrolling: touch; font-size: 0;
-      margin-bottom: -17px; padding-bottom: 17px; padding-top: 17px; padding-left: 20px; padding-right: 20px;
+  .sectionTitle.stuck {
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: 0; opacity: 1;
+    cursor: pointer; @include transition(padding-bottom, 0.2s, ease-in-out);
+  }
 
-      .eachSponsor {
-        display: inline-block; vertical-align: middle; background-position: center left; background-size: contain; background-repeat: no-repeat;
-        height: 50px;
-      }   
+  .sectionTitle.stuck:hover {
+    padding-bottom: 30px;
+  }
 
-      .eachSponsor:first-child {
-        margin-right: 20px;
-      }      
-    }
-
-    @include bp(maxSM) {
-      p {
-        margin-bottom: 10px;
-      }
-
-      .pastSponsorLogos {      
-        margin-bottom: 0; padding-bottom: 10px; padding-top: 10px; padding-left: 10px; padding-right: 10px;
-
-        .eachSponsor {
-          height: 25px;
-
-        }      
-      }
-    }    
-
-  
+  .sectionContent {
+    padding-top: 100px; padding-bottom: 100px;
   }
 }
 
@@ -427,10 +423,28 @@ section.orderedSec {
 
 
 
-.about .sideVisual {
+#about {
+  position: relative; z-index: 0;
+  .right {
+    > div {
+      position: relative; width: 100%; height: 100%;  z-index: 0;
+    }
 
+    .sideVisual {
+      position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: -1;
+    }
+  }
+
+  @include bp(maxMD) {
+    .right {
+      position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.1;
+    }
+  }
+}
+
+#about .sideVisual {
   > * {
-     position: absolute;
+     position: absolute; z-index: 99;
   }
 
   .redPixel {
@@ -438,7 +452,7 @@ section.orderedSec {
   }
 
   img.i1 {
-    width: 60%; display: block; position: absolute; bottom: 0%; left: 50%; @include transform(translateX(-50%));
+    width: 60%; display: block; position: absolute; bottom: -20%; left: 50%; @include transform(translateX(-50%));
   }
 
   img.i2 {
@@ -458,7 +472,7 @@ section.orderedSec {
   }
 
   .redPixel.i6 {
-    top: 20%; margin-top: -20px; right: 30%; margin-right: -20px;
+    top: 30%; right: 30%; margin-right: -20px;
   }
 
   img.i7 {
@@ -470,109 +484,129 @@ section.orderedSec {
   }
 }
 
+#prizes {
+  .eachPrize {
 
-
-
-.pastHackomania {
-  .eachHack > div {
-    display: flex;
-    @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2)); background-color: #FFFFFF;
+    h3 {
+      text-align: center; background-color: #FFFFFF; padding: 10px; @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
+    }
 
     .img {
-      display: inline-block; width: 60%; background-color: $red; background-position: center; background-size: cover;
-    }
-
-    .desc {
-      padding: 30px; width: 40%;
+      width: 100%; padding-bottom: 50%; background-size: contain; background-position: center; background-repeat: no-repeat;
     }
   }
 }
 
-@include bp(maxMD) {
-  .pastHackomania {
-    .eachHack > div {
-      display: block;
+#eventSchedule {
+  .eachSchedule {
+    h3 {
+      margin-bottom: 75px;
+    }
+    .eachR {
+      display: flex;
+      
+      > div {
+        width: 100%; margin-left: 20px;
 
-      .img {
-        display: block; width: 100%; height: 200px;
+        h6 {
+          background-color: #FFFFFF; display: inline-block; padding: 10px; margin-top: -10px; margin-bottom: 10px;
+          @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
+        }
       }
 
-      .desc {
-        width: 100%;
-      }
-    }
-  }  
-}
-
-@include bp(maxSM) {
-  .pastHackomania {
-    .eachHack > div {
-      display: block;
-
-      .img {
-        display: block; width: 100%; height: 200px;
-      }
-
-      .desc {
-        width: 100%;
-      }
-    }
-  }  
-}
-
-
-
-
-.sponsorship .sideVisual {
-
-  > * {
-     position: absolute;
-  }
-
-  .whitePixel {
-    width: 40px; height: 40px; background-color: #FFFFFF;
-  }
-
-  img.i1 {
-    width: 60%; display: block; position: absolute; bottom: 0%; left: 50%; @include transform(translateX(-50%));
-  }
-
-  img.i2 {
-    width: 40%; display: block; position: absolute; bottom: 20%; left: 0;
-  }
-
-  img.i3 {
-    width: 20%; display: block; position: absolute; top: 50%; right: 0;
-  }
-
-  .whitePixel.i3 {
-    top: 50%; margin-top: -20px; width: 20px; height: 20px;
-  }
-
-  .whitePixel.i4 {
-    top: 70%; margin-top: -20px; right: 0;
-  }
-
-  .whitePixel.i5 {
-    bottom: 20%; margin-top: 20px; right: 10%;  width: 20px; height: 20px;
-  }
-
-  .whitePixel.i6 {
-    top: 50%; margin-top: -20px; width: 20px; height: 20px;
-  }  
-
-  .whitePixel.i7 {
-    bottom: 20%; margin-top: -20px; right: 30%; margin-right: -20px;
-  }
-}
-
-
-
-.pastSponsorsSec {
-  .eachLogo {
-    .logo {
-      width: 100%; padding-bottom: 100%; background-color: #FFFFFF; @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2)); background-color: #FFFFFF;
-      background-position: center; background-repeat: no-repeat; background-size: 80% auto;      
     }
   }
 }
+
+
+#judges {
+  .eachJudges {
+    text-align: center; 
+    h3 {
+      line-height: 1;
+      span {
+        font-size: 18px; font-weight: 400;
+      }
+    }
+    .img {
+      width: 80%; padding-bottom: 80%; margin-left: auto; margin-right: auto; background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 100%;
+      border: 2px solid #000000; @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2));
+
+      @include bp(maxMD) {
+        width: 60%; padding-bottom: 60%;
+      }
+    }    
+  }
+}
+
+#judging {
+  .scoringChart {
+    width: 100%; display: flex; margin-bottom: 50px;
+    > div {
+      height: 100%;
+
+      p {
+        font-weight: 700; 
+      }
+
+      > p {
+        margin-left: 10px; margin-bottom: 10px;
+        .arr {
+          width: 0; height: 0; display: inline-block;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;          
+          border-top: 10px solid #000000;          
+          margin-top: 20px;
+        }         
+      }
+
+      .bar {
+        @include boxShadow(0px 3px 20px -3px rgba(0,0,0,0.2)); border: 4px solid #000000; padding: 20px;
+        border-right: none;      
+      }
+
+      &.label4 .bar {
+        border-right: 4px solid #000000 !important;
+      }
+    }
+
+    .label1 {
+      width: 25%; 
+      .bar {
+        background-color: $blue;
+      }
+    }
+    .label2 {
+      width: 25%; 
+      .bar {
+        background-color: $yellow;
+      }
+    }
+    .label3 {
+      width: 20%; 
+      .bar {
+        background-color: $red;
+      }
+    }
+    .label4 {
+      width: 30%; 
+      .bar { 
+        background-color: $lightGrey;
+      }
+    }
+  }
+}
+
+#challenges {
+  .eachChallenge {
+    text-align: center;
+    .img {
+      width: 100%; padding-bottom: 50%; background-size: contain; background-position: center; background-repeat: no-repeat;
+    }
+  }
+}
+
+
+
+
+

@@ -24,15 +24,15 @@ gulp.task('sass', function () {
 
 // Compile js
 gulp.task('scripts', function() {
-    //return gulp.src('files/js/build/*.js')
     return gulp.src([
         'files/js/build/jquery-3.3.1.min.js',
-        'files/js/build/TweenMax.min.js', 
-        'files/js/build/lightgallery.js',
+        'files/js/build/TweenMax.min.js',
         'files/js/build/ScrollToPlugin.min.js',
-        'files/js/build/fully.js', 'files/js/build/jquery.waypoints.js', 
-        'files/js/build/owl.carousel.min.js', 'files/js/build/tilt.jquery.js',
-        'files/js/build/ScrollMagic.min.js', 'files/js/build/animation.gsap.js',
+        'files/js/build/fully.js',
+        'files/js/build/jquery.waypoints.js', 
+        'files/js/build/owl.carousel.min.js',
+        'files/js/build/ScrollMagic.min.js',
+        'files/js/build/animation.gsap.js',
         'files/js/build/main.js'])
         .pipe(concat('scripts.js'))
         .pipe(rename('minify.js'))

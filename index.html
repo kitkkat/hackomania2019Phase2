@@ -11,7 +11,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Source+Code+Pro:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="files/css/lightgallery.css">
   <link rel="stylesheet" href="files/css/main.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="files/favicons/apple-touch-icon.png">
@@ -27,363 +26,551 @@
 <body>
 
   <header>
-    <div class="g">
+
+    <div class="g noMaxWidth">
       <div class="r">
-        <div class="xs-12 header">
-
-          <div class="left">
-            <nav>
-              <a class="tap" data-scrollTo="home">Home</a>
-              <a class="tap" data-scrollTo="about">About</a>
-              <a class="tap" data-scrollTo="pastHackomania">Past Events</a>
-              <a class="tap" data-scrollTo="sponsorship">Sponsorship</a>
-              <a class="tap" data-scrollTo="contactUs">Contact Us</a>
-            </nav>
+        <div class="xs-12">
+          <div class="header">
+            <div class="burgMenu">
+              <div></div>
+              <div><i class="rightArr"></i></div>
+              <div></div>
+            </div>            
           </div>
-
-          <div class="right">
-            <nav>
-
-              <div class="logo tap" data-scrollTo="home">
-                <img src="files/media/hackomaniaLogo.png" />
-              </div>
-
-              <div class="burgMenu">
-                <div></div>
-                <div><i class="rightArr"></i></div>
-                <div></div>
-              </div>
-
-              <!-- <a class="registerBtn tap" href="#" target="_blank">Register Today!</a> -->
-            </nav>
-          </div>
-
         </div>
       </div>
-
     </div>
+
+    <nav class="fixedNav themeGrey">
+      <a scrollToId="home"><h3>Register</h3></a>
+
+      <a scrollToId="eventDetails"><h3>Event Details</h3></a>
+      <a scrollToId="about"><p>About Event</p></a>      
+      <a scrollToId="challenges"><p>Challenges</p></a>     
+      <a scrollToId="prizes"><p>Prizes</p></a> 
+      <a scrollToId="judging"><p>Judging & Criteria</p></a>
+      <a scrollToId="judges"><p>Judges</p></a>
+      <a scrollToId="eventSchedule"><p>Event Schedule</p></a>
+      <a scrollToId="venue"><p>Venue</p></a>
+
+      <a scrollToId="sponsorship"><h3>Sponsors</h3></a>
+
+      <a scrollToId="contactUs"><h3>Contact Us</h3></a>    
+    </nav>
+
   </header>
-
-
-
-
-
-
-
 
   <main>
 
-    <section data-scrollToSec="home" class="topFold">
-      <div class="grad"></div>
-      <div class="fullyTopFold title">
+    <section id="home" class="topFold fullyTopFold" style="background-image: url('files/media/topFoldBgCircle.png');">
+      <div>
         <div class="g">
           <div class="r">
+            <div class="content lg-6 lg-offset-3 md-8 md-offset-2 sm-12 sm-offset-0">
+                <img src="files/media/hackomania2019.png"/>
 
-            <div class="xs-12 rowMargin">
-              <h1>HackOMania 2019</h1>
-              <h4>Event date: 23-24th Feb 2019</h4>
-              <h1 class="countDown"><span class="d">00</span> DAYS LEFT!</h1>
-              <a class="textBtn tap" data-scrollTo="about"><span class="arr"></span>
-                <p>Tell me more!</p>
-              </a>
-            </div>
+                <h5 class="countDown"><span class="d">116</span> DAYS LEFT!</h5>
+                <a><h4>REGISTER TODAY!! :))</h4></a>
 
-          </div>
-        </div>
-      </div>
-
-      <div class="pastSponsors">
-        <div class="g">
-          <div class="r">
-            <div class="xs-12">
-              <p>Our Past Sponsors</p>
             </div>
           </div>
         </div>
-
-        <!-- <div class="owl-carousel owlPastSponsors"> -->
-        <div class="pastSponsorLogos">
-          <img class="eachSponsor" src="files/media/logo-1.png" />
-          <img class="eachSponsor" src="files/media/logo-11.png" />
-          <img class="eachSponsor" src="files/media/logo-2.png" />
-          <img class="eachSponsor" src="files/media/logo-3.png" />
-          <img class="eachSponsor" src="files/media/logo-4.png" />
-          <img class="eachSponsor" src="files/media/logo-5.png" />
-          <img class="eachSponsor" src="files/media/logo-6.png" />
-          <img class="eachSponsor" src="files/media/logo-7.png" />
-          <img class="eachSponsor" src="files/media/logo-8.png" />
-          <img class="eachSponsor" src="files/media/logo-9.png" />
-          <img class="eachSponsor" src="files/media/logo-10.png" />
-        </div>
+        
       </div>
     </section>
 
-    <section data-scrollToSec="about" class="orderedSec about">
-      <div class="g">
-        <div class="r">
 
-          <div class="md-1 lineWrap">
-            <h1>01</h1>
-            <div class="line"></div>
-          </div>
 
-          <div class="md-5 rowMargin left">
-            <h1>HackOMania 2019</h1>
-            <h4>"Gamifying The Future"</h4>
-            <p>HackOMania is an annual 24-hour hackathon organised by <a class="tap" data-scrollTo="contactUs">GeeksHacking
-                Community</a> that aims to bring together tech enthusiasts, students and working professionals from
-              various backgrounds
-              to tackle real-world issues using awesome tech solutions.</p>
-            <p> The theme of this year is <a href="https://en.wikipedia.org/wiki/Gamification" target="_blank">Gamification!</a>
-              So assemble your squad, throw on your wizarding hats, and let's
-              get cranking!</p>
-            <p>* Registration is not yet open. Please keep watching this space for now.</p>
-            <!-- <a class="textBtn tap" href="#" target="_blank"><span class="arr"></span><p>Registration</p></a> -->
 
-            <p>Follow our <a class="tap" href="https://www.facebook.com/HackOManiaSG/" target="_blank">Facebook page</a> for latest news!</p>
-          </div>
 
-          <div class="md-5 md-offset-1 right">
-            <div>
-              <div class="sideVisual">
-                <div class="grad"></div>
 
-                <img class="i7 downNormal" src="files/media/pixelWifi.png" />
-                <img class="i8 downNormal" src="files/media/pixelBattery.png" />
 
-                <img class="i1 upNormal" src="files/media/pixelHeart.png" />
-                <img class="i2 downNormal" src="files/media/pixelHeart.png" />
-                <div class="redPixel i3 upNormal"></div>
-                <div class="redPixel i4 upFast"></div>
-                <div class="redPixel i5 upNormal"></div>
-                <div class="redPixel i6 upFast"></div>
-              </div>
+
+
+
+    <div class="stacked">
+        <section id="eventDetails" class="themeRetro">
+            <div class="sectionTitle" scrollToId="eventDetails">
+                <div class="g noMaxWidth">
+                    <div class="r">
+                      <div class="xs-12">
+                        <h4>EVENT DETAILS</h4>
+                      </div>  
+                    </div>
+                </div>
             </div>
-          </div>
 
-        </div>
-      </div>
-    </section>
+            <div class="sectionContent">
 
-    <section data-scrollToSec="pastHackomania" class="orderedSec pastHackomania">
-      <div class="g">
-        <div class="r">
+              <div class="rowMarginEvenMore">
+                <div id="about">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>HackOMania 2019</h1><div></div></div>
+                        <div class="md-6 rowMargin">                          
+                          <h4>Gamifying The Future</h4>
+                          <p>HackOMania is an annual 24-hour hackathon organised by <a class="tap" scrolltoId="contactUs">GeeksHacking
+                              Community</a> that aims to bring together tech enthusiasts, students and working professionals from
+                            various backgrounds
+                            to tackle real-world issues using awesome tech solutions.</p>
+                          <p> The theme of this year is <a href="https://en.wikipedia.org/wiki/Gamification" target="_blank">Gamification!</a>
+                            So assemble your squad, throw on your wizarding hats, and let's
+                            get cranking!</p>
+                          <p>* Registration is not yet open. Please keep watching this space for now.</p>
+                          <!-- <a class="textBtn tap" href="#" target="_blank"><span class="arr"></span><p>Registration</p></a> -->
 
-          <div class="md-1 lineWrap">
-            <h1>02</h1>
-            <div class="line"></div>
-          </div>
+                          <p>Follow our <a class="tap" href="https://www.facebook.com/HackOManiaSG/" target="_blank">Facebook page</a> for latest news!</p>
+                        </div>    
 
-          <div class="md-12 rowMargin left">
-            <h1>Our Past HackOMania</h1>
-            <h4>"We are getting bigger!"</h4>
+                        <div class="md-6 right">
+                          <div>
+                            <div class="sideVisual">
+                              <div class="redPixel i6 downNormal"></div>
+                              <img class="i7 downNormal" src="files/media/pixelWifi.png" />
+                              <img class="i8 downNormal" src="files/media/pixelBattery.png" />
 
-            <div class="r rowMarginMore">
+                              <img class="i1 upNormal" src="files/media/pixelHeart.png" />
+                              <img class="i2 downNormal" src="files/media/pixelHeart.png" />
+                              <div class="redPixel i3 upNormal"></div>
+                              <div class="redPixel i4 upFast"></div>
+                              <div class="redPixel i5 upNormal"></div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
 
-              <div class="sm-10 eachHack">
-                <div>
-                  <div class="img" id="selector1" style="background-image: url('files/media/hack-2018.jpg');"></div>
-                  <div class="desc rowMargin">
-                    <h3>2018 - Creating Smart Homes</h3>
-                    <p>A bunch of cool geeks gathered on 24th and 25th February 2018 to combine their brain
-                      power for 24 hours, delivering deep tech, AI, and IoT solutions that impact everyday living at
-                      home through HackOMania 2018.</p>
-                    <p>Despite having only 24 hours, the participants managed to come up with innovative projects by
-                      integrating AI solutions with smart locks, Raspberry Pi, Arduino boards, and paper cardboards.</p>
-                    <p>The winning team walked away with $1500 cash prize!</p>
+                <div id="challenges">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>Challenges</h1><div></div></div>
+
+                        <div class="md-4 sm-6 xs-12 eachChallenge rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>Fun For The Old Ages</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+
+                        <div class="md-4 sm-6 xs-12 eachChallenge rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>Social Solutions</h3>
+                          <p>Dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+
+                        <div class="md-4 md-offset-0 sm-6 sm-offset-3 xs-12 xs-offset-0 eachChallenge rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>AI & Community</h3>
+                          <p>Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. </p>
+                        </div>                                                
+                      </div>
+                  </div>
+                </div>
+
+                <div id="prizes">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>Prizes</h1><div></div></div>
+
+                        <div class="md-4 md-offset-0 sm-6 sm-offset-3 xs-12 xs-offset-0 eachPrize rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>Championship</h3>
+                          <ul class="rowMarginLess">
+                            <li>$10,000 Cash</li>
+                            <li>2 x new Ipad Pro</li>
+                            <li>5 x round trip tickets to Korea</li>    
+                            <li>Interview & featured on Newsplex Asia</li>                        
+                          </ul>
+                        </div>
+
+                        <div class="md-4 sm-6 xs-12 eachPrize rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>1st Runner Up</h3>
+                          <ul class="rowMarginLess">
+                            <li>$5,000 Cash</li>
+                            <li>4 x Google Smart Home</li>
+                            <li>Interview & featured on Newsplex Asia</li>  
+                          </ul>
+                        </div>
+
+                        <div class="md-4 sm-6 xs-12 eachPrize rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>2nd Runner Up</h3>
+                          <ul class="rowMarginLess">
+                            <li>$1,000 Cash</li>
+                            <li>One day tour in AI Singapore Smart Lab</li>
+                          </ul>
+                        </div>
+
+                        <div class="md-4 md-offset-2 sm-6 xs-12 eachPrize rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>Judges' Favorite</h3>
+                          <ul class="rowMarginLess">
+                            <li>$500 Cash</li>
+                          </ul>
+                        </div>
+
+                        <div class="md-4 sm-6 xs-12 eachPrize rowMargin">
+                          <div class="img" style="background-image: url('files/media/pixelHeart.png');"></div>
+                          <h3>Participation / Completer</h3>
+                          <ul class="rowMarginLess">
+                            <li>HackOMania finisher t-shirt</li>
+                            <li>Swag bags</li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                </div>        
+
+                <div id="judging">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>Judging & Criteria</h1><div></div></div>
+                        
+                        <div class="xs-12">
+                          <div class="scoringChart">
+                            <div class="eachLabel label1">
+                              <p><span class="arr"></span> Innovation</p>
+                              <div class="bar"><p>25%</p></div>
+                            </div>
+                            
+                            <div class="eachLabel label2">
+                              <p><span class="arr"></span> Execution</p>
+                              <div class="bar"><p>25%</p></div>
+                            </div>
+
+                            <div class="eachLabel label3">
+                              <p><span class="arr"></span> Completeness</p>
+                              <div class="bar"><p>20%</p></div>
+                            </div>
+
+                            <div class="eachLabel label4">
+                              <p><span class="arr"></span> Presentation</p>
+                              <div class="bar"><p>30%</p></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="md-6 rowMargin">
+                          <h3>Lorem Imsum</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+
+                        <div class="md-6 rowMargin">
+                          <h3>Terms & Condition</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+
+                <div id="judges">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>Judges</h1><div></div></div>
+                        
+                        <div class="md-3 sm-6 eachJudges rowMargin">
+                          <div class="img" style="background-image: url('files/media/demo-portrait.jpg');"></div>
+                          <h3>Mr Robert Lim<br><span>Founder of AI SIngapore</span></h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut.</p>
+                        </div>
+
+                        <div class="md-3 sm-6 eachJudges rowMargin">
+                          <div class="img" style="background-image: url('files/media/demo-portrait2.jpg');"></div>
+                          <h3>Mr Albert Hua<br><span>Founder of AI SIngapore</span></h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua..</p>
+                        </div>
+
+                        <div class="md-3 sm-6 eachJudges rowMargin">
+                          <div class="img" style="background-image: url('files/media/demo-portrait3.jpg');"></div>
+                          <h3>Mr Roger Yeo<br><span>Founder of GeeksHacking</span></h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit..</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut.</p>
+                        </div>
+
+                        <div class="md-3 sm-6 eachJudges rowMargin">
+                          <div class="img" style="background-image: url('files/media/demo-portrait4.jpg');"></div>
+                          <h3>Ms Mleoe<br><span>Founder of AI SIngapore</span></h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut.</p>
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+
+                <div id="eventSchedule">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>Event Schedule</h1><div></div></div>
+
+                        <div class="md-4 sm-7 eachSchedule">
+                          <h3>Pre-Event (18 Feb, Saturday)</h3>
+                          <div class="wrap rowMargin">
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Registration</h6>
+                                <p>*Lorem ipsum dolor sit amet.</p>                                
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Briefing</h6>                              
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Lorem ipsum</h6>                              
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Lorem ipsum</h6>                              
+                              </div>                              
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="md-4 sm-7 eachSchedule">
+                          <h3>Day 1 (29 Feb, Sunday)</h3>
+                          <div class="wrap rowMargin">
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Registration</h6>
+                                <p>*Lorem ipsum dolor sit amet.</p>                                
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Briefing</h6>                              
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Lorem ipsum</h6>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>                            
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Lorem ipsum</h6>                              
+                              </div>                              
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="md-4 sm-7 eachSchedule">
+                          <h3>Day 2 (28 Feb, Saturday)</h3>
+                          <div class="wrap rowMargin">
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Registration</h6>
+                                <p>*Lorem ipsum dolor sit amet.</p>                                
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Briefing</h6>                              
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Lorem ipsum</h6>                              
+                              </div>                              
+                            </div>
+
+                            <div class="eachR">
+                              <p>0800</p>
+                              <div>
+                                <h6>Lorem ipsum</h6>                              
+                              </div>                              
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+
+                <div id="venue">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12 title"><h1>Venue</h1><div></div></div>
+
+                        <div class="md-4 sm-6 rowMargin">
+                          <h3>Getting Here</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <div class="md-8 sm-6 xs-12">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7966671708664!2d103.77419984983439!3d1.296647962101832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a56784202d9%3A0x488d08d6c1f88d6b!2sNational+University+of+Singapore!5e0!3m2!1sen!2ssg!4v1540990577142" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
+              
+            </div>
+        </section>
+        
+        <section id="sponsorship" class="themeCloudy">
+            <div class="sectionTitle" scrollToId="sponsorship">
+                <div class="g noMaxWidth">
+                    <div class="r">
+                      <div class="xs-12">
+                        <h4>OUR PROUD SPONSORS</h4>
+                      </div>                        
+                    </div>
+                </div>
+            </div>
 
-              <div class="sm-10 sm-offset-2 eachHack">
-                <div>
-                  <div class="img" style="background-image: url('files/media/hack-2017.jpg');"></div>
-                  <div class="desc rowMargin">
-                    <h3>2017 - Social Networks</h3>
-                    <p>On the 4th to 5th of March 2017, geeks congregated and utilized APIs from 4 major
-                      social networks to develop meaningful applications.
-                    </p>
-                    <p>Laptop crashes, API-side failures, and sleep deprivation didn't stop the teams from changing the
-                      world with code in each of their small ways back in HackOMania 2017.
-                    </p>
-                    <p>In the end, a combined prize pool of $900 was awarded to the winning teams.</p>
-                    <!-- <p>In the end, a combined prize pool of $900 was awarded to the winning teams. Click <a href="https://www.geekshacking.com/showcase"
-                        target="_blank">Here</a> to see what our eventual winners came up with.
-                    </p> -->
+            <div class="sectionContent">
+              <div>
+                <div id="ourSponsors">
+                  <div class="g">
+                      <div class="r rowMargin">
+                        <div class="xs-12"><h1>THIS EVENT IS SPECIALLY SPONSORED BY:</h1></div>
+                        <div class="md-5">
+                          <div class="eachSponsorGroupWrap platinum">
+                            <h3>Platinum Sponsors</h3>
+                            <div class="logos">
+                              <div class="eachLogo">
+                                <img src="files/media/logos/aiSingapore.png">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="md-4 sm-6 xs-12">
+                          <div class="eachSponsorGroupWrap gold">
+                            <h3>Gold Sponsors</h3>
+                            <div class="logos">
+                              <div class="eachLogo">
+                                <img src="files/media/logos/sgInnovate.png">
+                              </div>
+                            </div>                          
+                          </div>
+                        </div>
+                        <div class="md-3 sm-6 xs-12">
+                          <div class="eachSponsorGroupWrap silver">
+                            <h3>Silver Sponsors</h3>
+                            <div class="logos">
+                              <div class="eachLogo longer">
+                                <img src="files/media/logos/nusIss.png">
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                        <div class="md-6 xs-12">
+                          <div class="eachSponsorGroupWrap bronze">
+                            <h3>Bronze Sponsors</h3>
+                            <div class="logos">
+                              <div class="eachLogo longer">
+                                <img src="files/media/logos/upcloud.png">
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                        <div class="md-6 xs-12">
+                          <div class="eachSponsorGroupWrap venue">
+                            <h3>Venue Sponsors</h3>
+                            <div class="logos">
+                              <div class="eachLogo">                              
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
-
-              <div class="sm-10 eachHack">
-                <div>
-                  <div class="img" style="background-image: url('files/media/hack-2016.jpg');">
-                  </div>
-                  <div class="desc rowMargin">
-                    <h3>2016 - Smart Nation</h3>
-                    <p>Geeks got together for HackOMania 2016: a 24-hour hackathon from 18-19 March 2016 aimed at
-                      building meaningful projects that are inline with the Smart Nation theme that Singapore is
-                      promoting.
-                    </p>
-                    <p>Over the course of a full day, contestants harnessed open-source government APIs via data.gov.sg
-                      to develop brilliant and impactful applications.</p>
-                    <p>For HackOMania 2016, a grand total of $900 worth of prizes were given away to our eventual
-                      winners.</p>
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section data-scrollToSec="sponsorship" class="orderedSec sponsorship">
-      <div class="g">
-        <div class="r">
-
-          <div class="md-1 lineWrap">
-            <h1>03</h1>
-            <div class="line"></div>
-          </div>
-
-          <div class="md-5 rowMargin left">
-            <h1>Sponsorship</h1>
-            <h4>"Partner with us!"</h4>
-            <p>Each year, <a class="tap" data-scrollTo="contactUs">GeeksHacking
-                Community</a> ventures into unexplored realms to uncover boundless possibilities. For HackOMania 2019,
-              we seek to Gamify the Future! With the proliferation of Augmented
-              Reality (AR), Internet of Things (IoT) and Cloud Technologies.</p>
-            <p>we hope to create breakthroughs by
-              leveraging existing technologies to devise practical solutions to solve real-life technical challenges.
-            </p>
-            <p>Feel free to contact us for a copy of the
-              <strong>Sponsor
-                Package</strong> or
-              for more information through</p>
-            <!-- <a class="textBtn tap" href="#" target="_blank"><span class="arr"></span><p>Registration</p></a> -->
-            <a class="textBtn tap" href="mailto:sponsor@geekshacking.com"><span class="arr"></span>
-              <p>sponsor@geekshacking.com</p>
-            </a>
-          </div>
-
-          <div class="md-5 md-offset-1 right">
-            <div>
-              <div class="sideVisual">
-                <div class="grad"></div>
-
-                <img class="i1 upNormal" src="files/media/goldPixel.png" />
-                <img class="i2 downNormal" src="files/media/silverPixel.png" />
-                <img class="i3 upNormal" src="files/media/bronzePixel.png" />
-                <div class="whitePixel i4 upNormal"></div>
-                <div class="whitePixel i5 upFast"></div>
-                <div class="whitePixel i6 upNormal"></div>
-                <div class="whitePixel i7 upFast"></div>
-
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section data-scrollToSec="sponsorship" class="orderedSec pastSponsorsSec">
-      <div class="g">
-        <div class="r">
-
-          <div class="md-1 lineWrap">
-            <h1>03a</h1>
-            <div class="line"></div>
-          </div>
-
-          <div class="xs-12 rowMargin left">
-            <h1>Our Past Sponsors</h1>
-            <h4></h4>
-
-            <div class="r rowMarginMore">
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-1.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-11.png'); background-size: 100% auto;">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-2.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-3.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-4.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-5.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-6.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-7.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-8.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-9.png');">
-                </div>
-              </div>
-
-              <div class="md-3 sm-4 xs-6 eachLogo">
-                <div class="logo" style="background-image: url('files/media/logo-10.png');">
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
+        </section>                                        
+    </div>
   </main>
 
-
-
-
-
-
-
-
-
-
-  <footer data-scrollToSec="contactUs">
-
+  <footer id="contactUs" class="themeGrey">
     <div class="g">
       <div class="r rowMargin">
         <div class="md-2 sm-4 sm-offset-0 xs-6 xs-offset-1 rowMargin">
-          <img class="logo" src="files/media/geekshackingLogo.png" />
+          <img class="logo" src="files/media/logos/geekshackingLogo.png" />
         </div>
         <div class="md-5 sm-8 sm-offset-0 xs-10 xs-offset-1 rowMargin">
           <h4>&ldquo;Change the world with code!&rdquo;</h4>
@@ -391,7 +578,7 @@
             designers, computer engineers and technopreneurs give back to the tech community using our skills and
             experiences. We want to create innovative and impactful solutions that will make a difference in the world
             today.</p>
-          <a class="textBtn tap" href="https://www.geekshacking.com/about.html" target="_blank"><span class="arr"></span>
+          <a class="textArrBtn tap" href="https://www.geekshacking.com/about.html" target="_blank"><span class="arr"></span>
             <p>Visit our website</p>
           </a>
         </div>
@@ -415,22 +602,25 @@
         </div>
       </div>
     </div>
-
   </footer>
 
   <script src="files/js/minify.js"></script>
   <script src="files/js/main.js"></script>
 
+
+
+
+
+
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126395067-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'UA-126395067-1');
   </script>
 
