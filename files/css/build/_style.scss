@@ -613,6 +613,21 @@ footer {
   }
 }
 
+.facebookShare {
+  position: fixed; bottom: 30px; right: 20px; z-index: 999; background-color: #3B5998; display: flex; align-items: center; color: #FFFFFF; font-weight: bold;
+  border-radius: 20px; padding: 5px 20px;
+  img {
+    height: 25px; margin-left: 10px; 
+  }
+
+  @include bp(maxSM) {
+    bottom: auto; right: auto; top: 20px; left: 20px;
+    img {
+      height: 17px; margin-left: 5px; 
+    }    
+  }
+}
+
 
 
 
