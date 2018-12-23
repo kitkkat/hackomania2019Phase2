@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Source+Code+Pro:400,700" rel="stylesheet">
   <link rel="stylesheet" href="files/css/main.css">
 
+  <link rel="stylesheet" href="grid/style.css">
+
   <meta property="og:url" content="https://hackomania.geekshacking.com/index.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="HackOMania 2019 / 23-24th Feb 2019" />
@@ -95,12 +97,34 @@
         <div class="g">
           <div class="r">
             <div class="content lg-8 lg-offset-2 md-8 md-offset-2 sm-12 sm-offset-0">
-              <img src="files/media/hackomania2019.png" />
+              <div id="original">
+                <img src="files/media/hackomania2019.png" />
 
-              <h5 class="countDown"><span class="d">116</span> DAYS LEFT!</h5>
-              <a href="https://hackomania2019.eventbrite.sg" target="_blank">
-                <h4>REGISTER TODAY!! :))</h4>
-              </a>
+                <h5 class="countDown"><span class="d">116</span> DAYS LEFT!</h5>
+                <a href="https://hackomania2019.eventbrite.sg" target="_blank">
+                  <h4>REGISTER TODAY!! :))</h4>
+                </a>
+
+                <a id="start" onclick="load()">
+                  <h4>START</h4>
+                </a>
+              </div>
+
+              <div id="game">
+                <h1 id="score"></h1>
+                <canvas id="grid" width="500" height="500"></canvas>
+                <p id="prompt">Drag to avoid the lines.</p>
+                <canvas id="health" width="250" height="50"></canvas>
+                <div id="buttons">
+                  <a id="restart" onclick="load()">
+                    <h4>RESTART</h4>
+                  </a>
+                  <a id="close" onclick="hide()">
+                    <h4>CLOSE</h4>
+                  </a>
+                </div>
+                <div id="touch"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -647,6 +671,11 @@
   <script src="files/js/minify.js"></script>
   <script src="files/js/main.js"></script>
 
+  <script src="grid/js/Constants.js"></script>
+  <script src="grid/js/Enemy.js"></script>
+  <script src="grid/js/Game.js"></script>
+  <script src="grid/js/Events.js"></script>
+  <script src="grid/js/main.js"></script>
 
 
 
