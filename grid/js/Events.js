@@ -24,6 +24,7 @@ function load() {
     closeButton.style.opacity = 0;
     gameDom.style.display = 'flex';
     healthBar.style.display = 'block';
+    touchDom.style.display = 'block';
     window.setTimeout(() => {
         gameDom.style.opacity = 1;
         healthBar.style.opacity = 1;

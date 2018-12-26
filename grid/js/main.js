@@ -50,6 +50,7 @@ function reset() {
 
 function lose() {
     Game.started = false;
+    touchDom.style.display = 'none';
     fadeIn(restartButton, closeButton, 'block');
     fadeOut(touchDom, healthBar);
 }
